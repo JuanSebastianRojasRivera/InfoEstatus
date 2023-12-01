@@ -1,0 +1,25 @@
+@media (min-width: 300px) {
+    .gradient-form {
+        height: 100vh !important;
+    }
+}
+
+@media (min-width: 300px) {
+    .gradient-custom-2 {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+        
+    }
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url('/img/fondoGle.jpg');
+    background-size: cover;
+    background-position: center;   
+}
+
+.translucido{
+    background-color: rgba(255, 255, 255, 0.0);
+}
