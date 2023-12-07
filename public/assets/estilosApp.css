@@ -1,0 +1,14 @@
+.barra{
+    background-color:rgba(216, 27, 27,0.9);
+}
+
+#navbarDropdown, .navbar{
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-menu a:hover{
+    color:rgb(187, 28, 28);
+    
+}
+
+

@@ -25,12 +25,15 @@ Route::view('/', 'auth.login');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::middleware(['auth'])->group(function () 
+{
 
-Route::resource('/tasks', TaskController::class);
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+    Route::resource('/tasks', TaskController::class); 
+      
+    Route::get('import', [ImportController::class, 'index']);
+    Route::post('import/importar', [ImportController::class, 'importar']);
+    Route::get('export/exportar', [ImportController::class, 'exportar']);
 
-Route::get('import', [ImportController::class, 'index']);
-Route::post('import/importar', [ImportController::class, 'importar']);
-Route::get('export/exportar', [ImportController::class, 'exportar']);
-
+});

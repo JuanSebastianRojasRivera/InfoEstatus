@@ -1,10 +1,10 @@
-@extends('layouts.base')
+@extends('layouts.app')
 
 @section('content')
-<div class="row">
+<div class="container">
     <div class="col-12">
         <div>
-            <h2>Crear Tarea</h2>
+            <h2>Crear Guia</h2>
         </div>
         <div>
             <a href="{{route('tasks.index')}}" class="btn btn-primary">Volver</a>

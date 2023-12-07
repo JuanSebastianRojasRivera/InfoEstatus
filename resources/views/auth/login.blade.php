@@ -25,7 +25,7 @@
                                 <div class="card-body p-md-5 mx-md-4 translucido" >
 
                                     <div class="text-center mt-3 translucido">
-                                        <img src="img/logogle.png" style="width: 290px; " alt="logo">
+                                        <img src="img/logogle.webp" style="width: 290px; " alt="logo">
                                     </div>
                                     <form class="mt-5 translucido" method="POST" action="{{ route('login') }}">
                                             
