@@ -16,16 +16,66 @@
                         <div class="clo-md-6 d-inline">
                                 <button class="btn btn-primary" type = "submit" >Importar</button>
                         </div> 
-
+  
+ 
                 </form>
             </div>
             <div class="d-inline">
                 <form action="{{ url('export/exportar') }}" method="get" class="d-inline">
-                    <!-- Aquí podrías agregar campos adicionales si es necesario -->
+                  
                     <button type="submit" class="btn btn-success">Exportar</button>
                 </form>
             </div>
-        </div>
+            
+            
+            <div class="clo-md-6 d-inline">
+    <form action="{{ url('crosing/actualizarTabla') }}" method="post" enctype="multipart/form-data" class="d-inline">
+        @method('DELETE') 
+        @csrf 
+        <button class="btn btn-primary" type="submit">Cruces de datos</button>
+    </form>
+</div>
+   
+            <div class="clo-md-6 d-inline">
+                
+                        <button class="btn btn-primary" type = "submit" >TCC</button>
+            
+                        </div> 
+
+                        <div class="clo-md-6 d-inline">
+                
+                <button class="btn btn-primary" type = "submit" >Solistica</button>
+    
+                </div> 
+
+                <div class="clo-md-6 d-inline">
+                
+                <button class="btn btn-primary" type = "submit" >Deprisa</button>
+    
+                </div> 
+
+                <div class="clo-md-6 d-inline">
+                
+                <button class="btn btn-primary" type = "submit" >Servientrega</button>
+    
+                </div> 
+
+                <div class="clo-md-6 d-inline">
+                
+                <button class="btn btn-primary" type = "submit" >Aldia</button>
+    
+                </div> 
+
+                <div class="clo-md-6 d-inline">
+                
+                <button class="btn btn-primary" type = "submit" >BlueLogistics</button>
+    
+                </div> 
+
+
+
+                        
+                        
 
         @if(Session::has('Completado'))
          <div class="col-12 mt-4">

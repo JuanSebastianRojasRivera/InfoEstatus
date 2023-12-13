@@ -36,4 +36,10 @@ Route::middleware(['auth'])->group(function ()
     Route::post('import/importar', [ImportController::class, 'importar']);
     Route::get('export/exportar', [ImportController::class, 'exportar']);
 
+ 
+ 
+    // Ejemplo de definición de ruta que acepta POST y DELETE en Laravel
+Route::match(['post', 'delete'], 'crosing/actualizarTabla',[ImportController::class, 'actualizarTabla']);
+
+
 });
