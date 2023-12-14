@@ -124,9 +124,11 @@ class ImportController extends Controller
             
         }
         
-         return back();
+        return "Datos actualizados correctamente";
         
     }
+
+
 
 
  public function collection()
