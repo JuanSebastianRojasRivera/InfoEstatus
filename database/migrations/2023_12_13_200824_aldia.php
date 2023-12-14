@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('aldia', function (Blueprint $table) {
+            $table->id();
             $table->string('Consignment');
             $table->string('Doc_Remission');
             $table->string('Otherdocument');
@@ -64,7 +65,7 @@ return new class extends Migration
             $table->string('Observations');
             $table->string('Reexrtc');
             $table->string('Transp');
-            
+            $table->timestamps();
             
         });
 

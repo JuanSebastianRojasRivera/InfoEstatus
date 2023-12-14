@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\TaskController;
 use App\Http\Controllers\ImportController;
+use App\Http\Controllers\ImportControllerTcc;
+
 
 
 
@@ -34,6 +36,10 @@ Route::middleware(['auth'])->group(function ()
       
     Route::get('import', [ImportController::class, 'index']);
     Route::post('import/importar', [ImportController::class, 'importar']);
+
+    Route::get('importtcc', [ImportControllerTcc::class, 'index']);
+    Route::post('importtcc/importartcc', [ImportControllerTcc::class, 'importartcc']);
+ 
     Route::get('export/exportar', [ImportController::class, 'exportar']);
 
  

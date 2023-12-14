@@ -20,7 +20,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::create('servientrega', function (Blueprint $table) {
-
+            $table->id();
         $table->string('State');	
         $table-> string('Grounds_for_Mass_Annulment');
         $table->string('Consigment');	
@@ -85,6 +85,7 @@ return new class extends Migration
         $table-> string('If_Apply');	
         $table-> string('Destination_Dane');	
         $table->string('Transp');
+        $table->timestamps();
         });
 }
 };

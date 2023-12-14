@@ -20,6 +20,21 @@
  
                 </form>
             </div>
+
+            <div class="d-inline">
+                <form action="{{url('importtcc/importartcc')}}" method="post" enctype="multipart/form-data" class="d-inline ">
+                        
+                            @csrf
+                    
+                    
+                        <div class="clo-md-6 d-inline">
+                                <button class="btn btn-primary" type = "submit" >TCC</button>
+                        </div> 
+  
+ 
+                </form>
+            </div>
+
             <div class="d-inline">
                 <form action="{{ url('export/exportar') }}" method="get" class="d-inline">
                   
@@ -36,42 +51,6 @@
     </form>
 </div>
    
-            <div class="clo-md-6 d-inline">
-                
-                        <button class="btn btn-primary" type = "submit" >TCC</button>
-            
-                        </div> 
-
-                        <div class="clo-md-6 d-inline">
-                
-                <button class="btn btn-primary" type = "submit" >Solistica</button>
-    
-                </div> 
-
-                <div class="clo-md-6 d-inline">
-                
-                <button class="btn btn-primary" type = "submit" >Deprisa</button>
-    
-                </div> 
-
-                <div class="clo-md-6 d-inline">
-                
-                <button class="btn btn-primary" type = "submit" >Servientrega</button>
-    
-                </div> 
-
-                <div class="clo-md-6 d-inline">
-                
-                <button class="btn btn-primary" type = "submit" >Aldia</button>
-    
-                </div> 
-
-                <div class="clo-md-6 d-inline">
-                
-                <button class="btn btn-primary" type = "submit" >BlueLogistics</button>
-    
-                </div> 
-
 
 
                         

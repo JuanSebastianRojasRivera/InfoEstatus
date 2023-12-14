@@ -9,6 +9,13 @@ class tcc extends Model
 {
     use HasFactory;
 
+
+
+
+    protected $table = 'tcc';
+   
+
+
     protected $fillable = [
         'Remittance',
         'Date_Disp',
