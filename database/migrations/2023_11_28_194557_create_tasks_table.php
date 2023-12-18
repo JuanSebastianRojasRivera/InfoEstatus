@@ -43,7 +43,7 @@ return new class extends Migration
             $table->string('department_of_origin');
             $table->string('destination_department');
             $table->string('weight');
-
+            $table->timestamps();
             
         });
     }

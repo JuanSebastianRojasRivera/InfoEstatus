@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\http\Controllers\TaskController;
 use App\Http\Controllers\ImportController;
 use App\Http\Controllers\ImportControllerTcc;
+use App\Http\Controllers\ModalController;
 
 
 
@@ -41,7 +42,7 @@ Route::middleware(['auth'])->group(function ()
     Route::post('importtcc/importartcc', [ImportControllerTcc::class, 'importartcc']);
  
     Route::get('export/exportar', [ImportController::class, 'exportar']);
-
+    Route::get('importar', [ModalController::class, 'show']);
  
  
     // Ejemplo de definición de ruta que acepta POST y DELETE en Laravel
