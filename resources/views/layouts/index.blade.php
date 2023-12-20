@@ -24,9 +24,12 @@
             <div class="d-inline">
                 <form action="{{url('importtcc/importartcc')}}" method="post" enctype="multipart/form-data" class="d-inline ">
                         
+                           
+                    
+                            <div class="clo-md-6 br-1 d-inline">
                             @csrf
-                    
-                    
+                                <input type="file" name="documento2">
+
                         <div class="clo-md-6 d-inline">
                                 <button class="btn btn-primary" type = "submit" >TCC</button>
                         </div> 

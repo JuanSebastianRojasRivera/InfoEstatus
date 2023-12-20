@@ -10,8 +10,8 @@ class ImportControllerTcc extends Controller
 {
     public function importartcc(Request $request)
     {
-        if ($request->hasFile('documento')) {
-            $path = $request->file('documento')->getRealPath();
+        if ($request->hasFile('documento2')) {
+            $path = $request->file('documento2')->getRealPath();
             
             $datos = Excel::toArray(new ImportController, $path);
             
