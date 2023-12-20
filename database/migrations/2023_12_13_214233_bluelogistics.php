@@ -11,7 +11,6 @@ return new class extends Migration
      */
     public function up(): void
     {
-        $table->id();
         $table->string('Consigment');
         $table->string('Recipient');
         $table->string('Origin_City');
@@ -44,7 +43,7 @@ return new class extends Migration
         $table->string('Service');
         $table->string('Recipent_Phone');
         $table->string('Conveyor');
-        $table->timestamps();
+ 
     }
 
     /**
