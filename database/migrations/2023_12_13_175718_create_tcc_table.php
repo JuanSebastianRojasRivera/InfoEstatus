@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tcc', function (Blueprint $table) {
+        Schema::create('tccs', function (Blueprint $table) {
             $table->id();
             $table->string('Remittance');
             $table->string('Date_Disp')->nullable();
-            $table->string('Doc_Remi')->nullable();
+            $table->text('Doc_Remi')->nullable();
             $table->string('Origin')->nullable();
             $table->string('Destination')->nullable();
             $table->string('Service_Type')->nullable();
@@ -36,8 +36,8 @@ return new class extends Migration
             $table->string('Delivery_Days')->nullable();
             $table->string('Delivery_Date')->nullable();
             $table->string('Novelty')->nullable();
-            $table->string('New_New3')->nullable();
-            $table->string('Remarks')->nullable();
+            $table->text('New_New3')->nullable();
+            $table->text('Remarks')->nullable();
             $table->string('Dane_City_Origin_City')->nullable();
             $table->string('Dane_Destination_City')->nullable();
             $table->string('Transp')->nullable();

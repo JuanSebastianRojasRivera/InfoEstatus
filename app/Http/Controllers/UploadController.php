@@ -31,7 +31,7 @@ class UploadController extends Controller
             if (!empty($datos) && is_array($datos[0])) {
                 $datosImportar = $datos[0];
                 
-                foreach ($datosImportar as $indice => $dato) {
+                foreach ($datosImportar as $indice => $dato) { 
                     
                     if($indice === 0 or empty($dato[0])){
                         continue;
@@ -116,10 +116,16 @@ class UploadController extends Controller
             
             $datos = Excel::toArray(new UploadController, $path);
             
-            if (!empty($datos) && is_array($datos[0])) {
+            if (!empty($datos) && is_array($datos[0])) {  
                 $datosImportar = $datos[0];
+
+                
                 
                 foreach ($datosImportar as $dato) {
+
+                    if($indice === 0 or empty($dato[0])){
+                        continue;
+                    }
                     if (count($dato) >= 30) {
                         Task::create([
                             'guide' => $dato[0], // Asegúrate de que el índice coincida con la estructura de tus datos
@@ -238,10 +244,11 @@ class UploadController extends Controller
                 $datosImportar = $datos[0];
                 
                 foreach ($datosImportar as $indice => $dato) {
-                    if($indice === 0){
+
+                    if($indice === 0 or empty($dato[1])){
                         continue;
                     }
-                    if (count($dato) >= 30) {
+                    if (count($dato) >= 36) {
                         Deprisa::create([
                             'Route' =>$dato[0],
                             'Remittance' =>$dato[1],
@@ -306,7 +313,7 @@ class UploadController extends Controller
                 $datosImportar = $datos[0];
                 
                 foreach ($datosImportar as $indice => $dato) {
-                    if($indice === 0){
+                    if($indice === 0 or empty($dato[0])){
                         continue;
                     }
                     if (count($dato) >= 30) {

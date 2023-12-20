@@ -91,7 +91,7 @@ class ImportController extends Controller
         return Task::all();
     }
 
-<<<<<<< HEAD
+
 
     public function exportar()
     {
@@ -117,9 +117,8 @@ class ImportController extends Controller
                 ->update(['client' => $shortName]); 
         }
 
-        return back();
-    }
-=======
+        
+    
 //DADASDASDADADADAD
 
     $datosActualizar = DB::table('tasks')
@@ -231,5 +230,5 @@ foreach ($datosActualizar as $dato) {
         
         return back();  
     } 
->>>>>>> 97620fef7b3a191fbd1bdc228387b2f350a681ee
+
 }
