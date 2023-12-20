@@ -10,39 +10,6 @@
             <div class="d-inline">
                 <a href="{{ route('tasks.create') }}" class="btn btn-primary">Generar Guía</a>
             </div>
-<<<<<<< HEAD
-=======
-            <div class="d-inline">
-                <form action="{{url('import/importar')}}" method="post" enctype="multipart/form-data" class="d-inline ">
-                        <div class="clo-md-6 br-1 d-inline">
-                            @csrf
-                                <input type="file" name="documento">
-                        </div> 
-                        <div class="clo-md-6 d-inline">
-                                <button class="btn btn-primary" type = "submit" >Importar</button>
-                        </div> 
-  
- 
-                </form>
-            </div>
-
-            <div class="d-inline">
-                <form action="{{url('importtcc/importartcc')}}" method="post" enctype="multipart/form-data" class="d-inline ">
-                        
-                           
-                    
-                            <div class="clo-md-6 br-1 d-inline">
-                            @csrf
-                                <input type="file" name="documento2">
-
-                        <div class="clo-md-6 d-inline">
-                                <button class="btn btn-primary" type = "submit" >TCC</button>
-                        </div> 
-  
- 
-                </form>
-            </div>
->>>>>>> 97620fef7b3a191fbd1bdc228387b2f350a681ee
 
             <div class="d-inline">
                 <form action="{{ url('export/exportar') }}" method="get" class="d-inline">
