@@ -9,10 +9,6 @@ class tcc extends Model
 {
     use HasFactory;
 
-
-
-
-    protected $table = 'tcc';
    
 
 
@@ -44,6 +40,6 @@ class tcc extends Model
         'Remarks',
         'Dane_City_Origin_City',
         'Dane_Destination_City',
-        'Transp'
+        'Transp',
     ];
 }

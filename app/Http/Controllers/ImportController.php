@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\task;
 use App\Models\changesclients;
+use App\Models\guideofclients;
+use App\Models\guide_status;
+use App\Models\causal_changes;
+use App\Models\typeofservice_changes;
 use Illuminate\Support\Facades\DB;
 
 
@@ -87,6 +91,7 @@ class ImportController extends Controller
         return Task::all();
     }
 
+<<<<<<< HEAD
 
     public function exportar()
     {
@@ -114,4 +119,117 @@ class ImportController extends Controller
 
         return back();
     }
+=======
+//DADASDASDADADADAD
+
+    $datosActualizar = DB::table('tasks')
+    ->select('client', 'guide') 
+    ->whereIn('guide', function ($query) {
+        $query->select('guide1')->from('guideofclients');
+    })
+    ->get();
+
+foreach ($datosActualizar as $dato) {
+    $guideofcl = DB::table('guideofclients')
+        ->where('guide1', $dato->guide)
+        ->value('client1'); 
+
+    
+    if ($guideofcl !== null) {
+        DB::table('tasks')
+            ->where('client', $dato->client)
+            ->update(['client' => $guideofcl]);
+    }
+}
+//DADASDASDADADADAD
+
+    $datosActualizar = DB::table('tasks')
+    ->select('shipment_type') 
+    ->whereIn('shipment_type', function ($query) {
+        $query->select('typeofservice')->from('typeofservice_changes');
+    })
+    ->get();
+
+foreach ($datosActualizar as $dato) {
+    $guideofcl = DB::table('typeofservice_changes')
+        ->where('typeofservice', $dato->shipment_type)
+        ->value('servicegle'); 
+
+    
+    if ($guideofcl !== null) {
+        DB::table('tasks')
+            ->where('shipment_type', $dato->shipment_type)
+            ->update(['shipment_type' => $guideofcl]);
+    }
+}
+    //DADASDASDADADADAD
+
+    $datosActualizar = DB::table('tasks')
+    ->select('delivery_status') 
+    ->whereIn('delivery_status', function ($query) {
+        $query->select('state_guide')->from('guide_status');
+    })
+    ->get();
+
+foreach ($datosActualizar as $dato) {
+    $guideofcl = DB::table('guide_status')
+        ->where('state_guide', $dato->delivery_status)
+        ->value('state_gle'); 
+
+    
+    if ($guideofcl !== null) {
+        DB::table('tasks')
+            ->where('delivery_status', $dato->delivery_status)
+            ->update(['delivery_status' => $guideofcl]);
+            }   
+        }       
+
+            //DADASDASDADADADAD
+
+    $datosActualizar = DB::table('tasks')
+    ->select('causal_amplification') 
+    ->whereIn('causal_amplification', function ($query) {
+        $query->select('causal_operators')->from('causal_changes');
+    })
+    ->get();
+
+foreach ($datosActualizar as $dato) {
+    $guideofcl = DB::table('causal_changes')
+        ->where('causal_operators', $dato->causal_amplification)
+        ->value('causal_status'); 
+
+    
+    if ($guideofcl !== null) {
+        DB::table('tasks')
+            ->where('causal_amplification', $dato->causal_amplification)
+            ->update(['causal_amplification' => $guideofcl]);
+            }   
+        }     
+   
+                    //DADASDASDADADADAD
+
+    $datosActualizar = DB::table('tasks')
+    ->select('causal_amplification') 
+    ->whereIn('causal_amplification', function ($query) {
+        $query->select('causal_operators')->from('causal_changes');
+    })
+    ->get();
+
+foreach ($datosActualizar as $dato) {
+    $guideofcl = DB::table('causal_changes')
+        ->where('causal_operators', $dato->causal_amplification)
+        ->value('causal_status'); 
+
+    
+    if ($guideofcl !== null) {
+        DB::table('tasks')
+            ->where('causal_amplification', $dato->causal_amplification)
+            ->update(['causal_amplification' => $guideofcl]);
+            }    
+        } 
+        
+        
+        return back();  
+    } 
+>>>>>>> 97620fef7b3a191fbd1bdc228387b2f350a681ee
 }
