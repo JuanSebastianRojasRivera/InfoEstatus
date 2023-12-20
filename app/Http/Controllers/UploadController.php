@@ -102,11 +102,14 @@ class UploadController extends Controller
                 }
         
             }
-    
+
+            return redirect()->route('upload')->with('Cargado', 'Se ha cargado el archivo de Aldia con exito');
+
         }
-    
-        return redirect()->route('upload')->with('Cargado', 'Se ha cargado el archivo de Aldia con exito');
-    
+        else
+        {
+            return redirect()->route('upload')->with('CargaFallida', '¡Ups, parece que has olvidado subir el archivo de Aldia!!');
+        }
     }
 
     public function importar(Request $request): RedirectResponse
@@ -156,14 +159,16 @@ class UploadController extends Controller
 
                     } 
             
-            }
+                }
             
+            }
+
+            return redirect()->route('upload')->with('Cargado', 'Se ha cargado el archivo del Infoestatus con exito');
         }
-        
+        else
+        {
+            return redirect()->route('upload')->with('CargaFallida', '¡Ups, parece que has olvidado subir el archivo del Infoestatus!!');
         }
-        
-        return redirect()->route('upload')->with('Cargado', 'Se ha cargado el archivo del infoestatus con exito');
-        
     }
 
     public function bluelogistics(Request $request): RedirectResponse
@@ -220,11 +225,14 @@ class UploadController extends Controller
                  }
             
             }
-        
+
+            return redirect()->route('upload')->with('Cargado', 'Se ha cargado el archivo de Bluelogistics con exito');
+                
         }
-        
-        return redirect()->route('upload')->with('Cargado', 'Se ha cargado el archivo de Bluelogistics con exito');
-        
+        else
+        {
+            return redirect()->route('upload')->with('CargaFallida', '¡Ups, parece que has olvidado subir el archivo de Bluelogistics!!');
+        }        
     }
 
     public function deprisa(Request $request): RedirectResponse
@@ -288,10 +296,14 @@ class UploadController extends Controller
                  }
             
             }
-        
+
+            return redirect()->route('upload')->with('Cargado', 'Se ha cargado el archivo de Deprisa con exito');
         }
+        else
+        {
+            return redirect()->route('upload')->with('CargaFallida', '¡Ups, parece que has olvidado subir el archivo de Deprisa!!');
+        } 
         
-        return redirect()->route('upload')->with('Cargado', 'Se ha cargado el archivo de Deprisa con exito');
         
     }
 
@@ -385,10 +397,15 @@ class UploadController extends Controller
                  }
             
             }
+
+            return redirect()->route('upload')->with('Cargado', 'Se ha cargado el archivo de Servientrega con exito');
         
         }
+        else
+        {
+            return redirect()->route('upload')->with('CargaFallida', '¡Ups, parece que has olvidado subir el archivo de Servientrega!!');
+        } 
         
-        return redirect()->route('upload')->with('Cargado', 'Se ha cargado el archivo de Servientrega con exito');
         
     }
 
@@ -474,11 +491,14 @@ class UploadController extends Controller
                  }
             
             }
+
+            return redirect()->route('upload')->with('Cargado', 'Se ha cargado el archivo de Solistica con exito');
         
         }
-        
-        return redirect()->route('upload')->with('Cargado', 'Se ha cargado el archivo de Solistica con exito');
-        
+        else
+        {
+            return redirect()->route('upload')->with('CargaFallida', '¡Ups, parece que has olvidado subir el archivo de Solistica!!');
+        } 
     }
 
     public function tcc(Request $request): RedirectResponse
@@ -534,10 +554,13 @@ class UploadController extends Controller
                  }
             
             }
+
+            return redirect()->route('upload')->with('Cargado', 'Se ha cargado el archivo de Tcc con exito');
         
         }
-        
-        return redirect()->route('upload')->with('Cargado', 'Se ha cargado el archivo de Tcc con exito');
-        
+        else
+        {
+            return redirect()->route('upload')->with('CargaFallida', '¡Ups, parece que has olvidado subir el archivo de Tcc!!');
+        } 
     }
 }

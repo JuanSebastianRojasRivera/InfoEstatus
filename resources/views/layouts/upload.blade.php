@@ -18,6 +18,14 @@
          </div>
         @endif
 
+        @if(Session::has('CargaFallida'))
+         <div class="col-12 mt-4 mb-4">
+             <div class="alert alert-warning">
+                 <strong>{{ Session::get('CargaFallida') }}</strong>
+             </div>
+         </div>
+        @endif
+
         <div class="row">
             <div class="col">
                 <div class="mb-4 col-4">
