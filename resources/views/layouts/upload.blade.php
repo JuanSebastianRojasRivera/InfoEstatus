@@ -21,6 +21,7 @@
         @if(Session::has('CargaFallida'))
          <div class="col-12 mt-4 mb-4">
              <div class="alert alert-warning">
+                
                  <strong>{{ Session::get('CargaFallida') }}</strong>
              </div>
          </div>
@@ -55,6 +56,12 @@
                         </div> 
                         <div class="clo-md-6 d-inline">
                             <button class="btn btn-primary btn-bloqueo" type = "submit" onclick="bloquearBoton('form-aldia')">Cargar</button>
+                        </div> 
+                    </form>
+                    <form action="{{url('upload/agregar-aldia')}}" method="post" enctype="multipart/form-data" class="d-inline" id="form-aaldia">
+                        @csrf
+                        <div class="clo-md-6 d-inline">
+                            <button class="btn btn-primary btn-bloqueo" type = "submit" onclick="bloquearBoton('form-aaldia')">Agregar</button>
                         </div> 
                     </form>
                 </div>

@@ -112,6 +112,48 @@ class UploadController extends Controller
         }
     }
 
+    public function ingresarAldia(): RedirectResponse
+    {
+        $datos = aldia::all()->toArray();
+        foreach ($datos as $dato) {
+            Task::create([
+                'guide'=>$dato['Remission'], 
+                'conveyor'=>$dato['Doc_Remission'],
+                'client'=>$dato['Regional_Origin'],
+                'elaboration_date'=>$dato['Regional_Origin'],
+                'origin'=>$dato['Regional_Origin'],
+                'client_documentation'=>$dato['Regional_Origin'],
+                'viv'=>$dato['Regional_Origin'],
+                'addressee'=>$dato['Regional_Origin'],
+                'address'=>$dato['Regional_Origin'],
+                'phone'=>$dato['Regional_Origin'],
+                'destination_city'=>$dato['Regional_Origin'],
+                'declared_value'=>$dato['Regional_Origin'],
+                'parts'=>$dato['Regional_Origin'],
+                'shipment_type'=>$dato['Regional_Origin'],
+                'type_route'=>$dato['Regional_Origin'],
+                'delivery_days'=>$dato['Regional_Origin'],
+                'scheduled_date'=>$dato['Regional_Origin'],
+                'presentation_date' =>$dato['Regional_Origin'],
+                'delivery_appointments' =>$dato['Regional_Origin'],
+                'delivery_status' =>$dato['Regional_Origin'],
+                'causal_description' =>$dato['Regional_Origin'],
+                'causal_amplification' =>$dato['Regional_Origin'],
+                'causal_amplification2' =>$dato['Regional_Origin'],
+                'responsible' =>$dato['Regional_Origin'],
+                'time' =>$dato['Regional_Origin'],
+                'return_status_fulfilled' =>$dato['Regional_Origin'],
+                'return_date_fulfilled' =>$dato['Regional_Origin'], 
+                'department_of_origin' =>$dato['Regional_Origin'],
+                'destination_department' =>$dato['Regional_Origin'],
+                'weight' =>$dato['Regional_Origin']
+            ]);
+        }
+        return redirect()->route('upload')->with('Cargado', 'Se ha agreagado los datos de Aldia con exito');   
+        
+        
+    }
+
     public function importar(Request $request): RedirectResponse
     {
         if ($request->hasFile('documento')) {

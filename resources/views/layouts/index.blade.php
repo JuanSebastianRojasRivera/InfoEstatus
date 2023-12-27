@@ -29,7 +29,7 @@
         <div class="tb-padding">
             @if(Session::has('Completado'))
             <div class="col-12 mt-4">
-                <div class="alert alert-danger">
+                <div class="alert alert-success">
                     <strong>{{ Session::get('Completado') }}</strong>
                 </div>
             </div>

@@ -38,6 +38,7 @@ Route::middleware(['auth'])->group(function ()
     Route::get('upload', [UploadController::class,'index'])->name('upload');
     Route::post('upload/infoestatus', [UploadController::class,'importar']);
     Route::post('upload/aldia', [UploadController::class,'aldia']);
+    Route::post('upload/agregar-aldia', [UploadController::class,'ingresarAldia']);
     Route::post('upload/deprisa', [UploadController::class,'deprisa']);
     Route::post('upload/bluelogistics', [UploadController::class,'bluelogistics']);
     Route::post('upload/servientrega', [UploadController::class,'servientrega']);
