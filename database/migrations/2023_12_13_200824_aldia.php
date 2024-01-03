@@ -68,7 +68,7 @@ return new class extends Migration
             $table->string('Operation_Type')->nullable();
             $table->string('Remarks')->nullable();
             $table->string('Reexrtc')->nullable();
-            $table->string('Transp')->nullable();            
+            $table->string('Transp')->nullable();
             $table->timestamps();
             
         });

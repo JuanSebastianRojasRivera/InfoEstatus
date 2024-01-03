@@ -15,15 +15,15 @@ class deprisa extends Model
         'Date_Desp',
         'Place',
         'Customer_Division',
-        'Sender_address',
+        'Sender_Address',
         'Sender_CPC',
         'Origin',
         'Recipient',
         'Consignee_Address',
-        'CP_consignee',
+        'CP_Consignee',
         'Destination',
-        'Date_recorded',
-        'Departure_date',
+        'Date_Recorded',
+        'Departure_Date',
         'Arrival_Date',
         'Delivery_Date',
         'Doc_Remi',
@@ -32,7 +32,7 @@ class deprisa extends Model
         'Volume',
         'Incidence',
         'New',
-        'Expansion_incidence',
+        'Expansion_Incidence',
         'Locator',
         'Remarks',
         'Remarks_1',
@@ -46,7 +46,8 @@ class deprisa extends Model
         'Paid',
         'Customs_Declared_Value',
         'Theoretical_Delivery_Date',
-        'Transp'
+        'Transp',
+
 
     ];
 }

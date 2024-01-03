@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('City_Dest(Spa)')->nullable();
             $table->string('Distribution_Zone')->nullable();
             $table->string('Destination_Code')->nullable();
-            $table->string('Nit_or_Cc_Target')->nullable();
+            $table->string('Nit_Or_Cc_Target')->nullable();
             $table->string('Addressee')->nullable();
             $table->string('Consignee_Address')->nullable();
             $table->string('Dry_Load_Cases')->nullable();
@@ -34,11 +34,12 @@ return new class extends Migration
             $table->string('Kilos_Cold_Chain_Kilos')->nullable();
             $table->string('Total_Kilos')->nullable();
             $table->string('Exp_Date')->nullable();
-            $table->string('Time_of_Processing')->nullable();
+            $table->string('Time_Of_Processing')->nullable();
             $table->string('Delivery_Date')->nullable();
             $table->string('Delivery_Time')->nullable();
             $table->string('Time')->nullable();
-            $table->string('New_Cause')->nullable();
+            $table->string('Cause')->nullable();
+            $table->string('New')->nullable();
             $table->string('Cause_Manager_Of_The_Cause')->nullable();
             $table->string('Internal_Cause_Manager_Of_The_Cause')->nullable();
             $table->string('Status')->nullable();
@@ -60,7 +61,7 @@ return new class extends Migration
             $table->string('Digitization')->nullable();
             $table->string('Fulfillment_Indicator')->nullable();
             $table->string('Cause_Queue_No_1')->nullable();
-            $table->string('Queue_of_Appeal_No_2')->nullable();
+            $table->string('Queue_Of_Appeal_No_2')->nullable();
             $table->string('Cause_Queue_No_3')->nullable();
             $table->string('Queue_Of_Appeal_Nr_4')->nullable();
             $table->string('Appointment_Dispatch')->nullable();

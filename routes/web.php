@@ -38,12 +38,18 @@ Route::middleware(['auth'])->group(function ()
     Route::get('upload', [UploadController::class,'index'])->name('upload');
     Route::post('upload/infoestatus', [UploadController::class,'importar']);
     Route::post('upload/aldia', [UploadController::class,'aldia']);
-    Route::post('upload/agregar-aldia', [UploadController::class,'ingresarAldia']);
+    Route::post('upload/ingresar-aldia', [UploadController::class,'ingresarAldia']);
     Route::post('upload/deprisa', [UploadController::class,'deprisa']);
+    Route::post('upload/ingresar-deprisa', [UploadController::class,'ingresarDeprisa']);
     Route::post('upload/bluelogistics', [UploadController::class,'bluelogistics']);
+    Route::post('upload/ingresar-bluelogistics', [UploadController::class,'ingresarBluelogistics']);
+    Route::post('upload/gle', [UploadController::class,'gle']);
+    Route::post('upload/ingresar-gle', [UploadController::class,'ingresarGle']);
     Route::post('upload/servientrega', [UploadController::class,'servientrega']);
     Route::post('upload/solistica', [UploadController::class,'solistica']);
+    Route::post('upload/ingresar-solistica', [UploadController::class,'ingresarSolistica']);
     Route::post('upload/tcc', [UploadController::class,'tcc']);
+    Route::post('upload/ingresar-tcc', [UploadController::class,'ingresarTcc']);
     // Ejemplo de definición de ruta que acepta POST y DELETE en Laravel
     Route::match(['post', 'delete'], 'crosing/actualizarTabla',[ImportController::class, 'actualizarTabla']);
 

@@ -9,11 +9,37 @@ class task extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['guide', 'conveyor','client','elaboration_date','origin',
-    'client_documentation','viv','addressee','address','phone','destination_city',
-    'declared_value','parts','shipment_type','type_route','delivery_days',
-    'scheduled_date','presentation_date','delivery_appointments','delivery_status',
-    'causal_description','causal_amplification','causal_amplification2',
-    'responsible','time','return_status_fulfilled','return_date_fulfilled', 
-    'department_of_origin','destination_department','weight',];
+    protected $fillable = [
+        'Guide',
+        'Conveyor',
+        'Client',
+        'Elaboration_Date',
+        'Origin',
+        'Client_Documentation',
+        'Div',
+        'Addressee',
+        'Address',
+        'Phone',
+        'Destination_City',
+        'Declared_Value',
+        'Parts',
+        'Shipment_Type',
+        'Type_Route',
+        'Delivery_Days',
+        'Scheduled_Date',
+        'Presentation_Date',
+        'Delivery_Appointments',
+        'Delivery_Status',
+        'Causal_Description',
+        'Causal_Amplification',
+        'Causal_Amplification2',
+        'Responsible',
+        'Time',
+        'Return_Status_Fulfilled',
+        'Return_Date_Fulfilled ',
+        'Department_Of_Origin',
+        'Destination_Department',
+        'Weight',
+
+    ];
 }

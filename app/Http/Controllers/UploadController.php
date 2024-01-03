@@ -12,6 +12,7 @@ use App\Models\deprisa;
 use App\Models\servientrega;
 use App\Models\solistica;
 use App\Models\tcc;
+use App\Models\gle;
 use Illuminate\Http\RedirectResponse;
 
 class UploadController extends Controller
@@ -117,40 +118,29 @@ class UploadController extends Controller
         $datos = aldia::all()->toArray();
         foreach ($datos as $dato) {
             Task::create([
-                'guide'=>$dato['Remission'], 
-                'conveyor'=>$dato['Doc_Remission'],
-                'client'=>$dato['Regional_Origin'],
-                'elaboration_date'=>$dato['Regional_Origin'],
-                'origin'=>$dato['Regional_Origin'],
-                'client_documentation'=>$dato['Regional_Origin'],
-                'viv'=>$dato['Regional_Origin'],
-                'addressee'=>$dato['Regional_Origin'],
-                'address'=>$dato['Regional_Origin'],
-                'phone'=>$dato['Regional_Origin'],
-                'destination_city'=>$dato['Regional_Origin'],
-                'declared_value'=>$dato['Regional_Origin'],
-                'parts'=>$dato['Regional_Origin'],
-                'shipment_type'=>$dato['Regional_Origin'],
-                'type_route'=>$dato['Regional_Origin'],
-                'delivery_days'=>$dato['Regional_Origin'],
-                'scheduled_date'=>$dato['Regional_Origin'],
-                'presentation_date' =>$dato['Regional_Origin'],
-                'delivery_appointments' =>$dato['Regional_Origin'],
-                'delivery_status' =>$dato['Regional_Origin'],
-                'causal_description' =>$dato['Regional_Origin'],
-                'causal_amplification' =>$dato['Regional_Origin'],
-                'causal_amplification2' =>$dato['Regional_Origin'],
-                'responsible' =>$dato['Regional_Origin'],
-                'time' =>$dato['Regional_Origin'],
-                'return_status_fulfilled' =>$dato['Regional_Origin'],
-                'return_date_fulfilled' =>$dato['Regional_Origin'], 
-                'department_of_origin' =>$dato['Regional_Origin'],
-                'destination_department' =>$dato['Regional_Origin'],
-                'weight' =>$dato['Regional_Origin']
+                'Guide'=>$dato['Remission'],
+                'Conveyor'=>'ALDIA',
+                'Client'=>$dato['Sender'],
+                'Elaboration_Date'=>$dato['Date_Desp'],
+                'Origin'=>$dato['Regional_Origin'],
+                'Client_Documentation'=>$dato['Observation'],
+                'Addressee'=>$dato['Addressee'],
+                'Address'=>$dato['Addressee_Address'],
+                'Phone'=>$dato['Tel_Addressee'],
+                'Destination_City'=>$dato['Destination'],
+                'Declared_Value'=>$dato['Vlr_Decl'],
+                'Parts'=>$dato['Quantity'],
+                'Shipment_Type'=>$dato['Service_Type'],
+                'Presentation_Date'=>$dato['Delivery_Event_Date'],
+                'Delivery_Status'=>$dato['Event_Remiage'],
+                'Causal_Description'=>$dato['New'],
+                'Causal_Amplification'=>$dato['New'],
+                'Responsible'=>$dato['Responsible'],
+                'Weight'=>$dato['Weight'],
+
             ]);
         }
         return redirect()->route('upload')->with('Cargado', 'Se ha agreagado los datos de Aldia con exito');   
-        
         
     }
 
@@ -283,6 +273,33 @@ class UploadController extends Controller
         }        
     }
 
+    public function ingresarBluelogistics(): RedirectResponse
+    {
+        $datos = bluelogistics::all()->toArray();
+        foreach ($datos as $dato) {
+            Task::create([
+                'Guide'=>$dato['Consigment'],
+                'Conveyor'=>'BLUELOGISTICS',
+                'Client'=>$dato['Customer_Division'],
+                'Elaboration_Date'=>$dato['Date_Desp'],
+                'Origin'=>$dato['Origin_City'],
+                'Client_Documentation'=>$dato['Client_Document'],
+                'Addressee'=>$dato['Recipient'],
+                'Address'=>$dato['Recipient_Address'],
+                'Phone'=>$dato['Recipent_Phone'],
+                'Destination_City'=>$dato['Destination_City'],
+                'Declared_Value'=>$dato['Declared_Value'],
+                'Parts'=>$dato['Parts'],
+                'Causal_Description'=>$dato['Observations'],
+                'Causal_Amplification2'=>$dato['Observations'],
+                'Weight'=>$dato['Weight'],
+
+            ]);
+        }
+        return redirect()->route('upload')->with('Cargado', 'Se ha agreagado los datos de Bluelogistics con exito');   
+        
+    }
+
     public function deprisa(Request $request): RedirectResponse
     {
         if ($request->hasFile('documento')) {
@@ -353,6 +370,117 @@ class UploadController extends Controller
             return redirect()->route('upload')->with('CargaFallida', '¡Ups, parece que has olvidado subir el archivo de Deprisa!!');
         } 
         
+        
+    }
+
+    public function ingresarDeprisa(): RedirectResponse
+    {
+        $datos = deprisa::all()->toArray();
+        foreach ($datos as $dato) {
+            Task::create([
+                'Guide'=>$dato['Remittance'],
+                'Conveyor'=>'DEPRISA',
+                'Client'=>$dato['Customer_Division'],
+                'Elaboration_Date'=>$dato['Date_Recorded'],
+                'Origin'=>$dato['Origin'],
+                'Client_Documentation'=>$dato['Doc_Remi'],
+                'Addressee'=>$dato['Recipient'],
+                'Address'=>$dato['Consignee_Address'],
+                'Phone'=>'0',
+                'Destination_City'=>$dato['Recipient'],
+                'Parts'=>$dato['Quantity'],
+                'Shipment_Type'=>$dato['Service_Type'],
+                'Presentation_Date'=>$dato['Arrival_Date'],
+                'Causal_Description'=>$dato['New'],
+                'Causal_Amplification'=>$dato['Expansion_Incidence'],
+                'Causal_Amplification2'=>$dato['Remarks'],
+                'Weight'=>$dato['Weight'],
+
+            ]);
+        }
+        return redirect()->route('upload')->with('Cargado', 'Se ha agreagado los datos de Deprisa con exito');   
+        
+    }
+
+    public function gle(Request $request): RedirectResponse
+    {
+        if ($request->hasFile('documento')) {
+            $path = $request->file('documento')->getRealPath();
+            
+            $datos = Excel::toArray(new UploadController, $path);
+            
+            if (!empty($datos) && is_array($datos[0])) {
+                $datosImportar = $datos[0];
+                
+                foreach ($datosImportar as $indice => $dato) {
+
+                    if($indice === 0 or empty($dato[1])){
+                        continue;
+                    }
+                    if (count($dato) >= 18) {
+                        Gle::create([
+                            'Remittance' =>$dato[0],
+                            'Transp' =>$dato[1],
+                            'New' =>$dato[2],
+                            'Customer_Division' =>$dato[3],
+                            'Date_Desp' =>$dato[4],
+                            'Origin' =>$dato[5],
+                            'Doc_Remi' =>$dato[6],
+                            'Addressee' =>$dato[7],
+                            'Destination' =>$dato[8],
+                            'Quantity' =>$dato[9],
+                            'Vlr_Decl' =>$dato[10],
+                            'Service_Type' =>$dato[11],
+                            'Guide_State' =>$dato[12],
+                            'Responsible' =>$dato[13],
+                            'Customer_Service_Value' =>$dato[14],
+                            'Weight' =>$dato[15],
+                            'Arrival_Time' =>$dato[16],
+                            'Departure_Time' =>$dato[17],
+                            'Remarks' =>$dato[18],
+                        ]);
+
+                    } 
+            
+                 }
+            
+            }
+
+            return redirect()->route('upload')->with('Cargado', 'Se ha cargado el archivo de Gle con exito');
+        }
+        else
+        {
+            return redirect()->route('upload')->with('CargaFallida', '¡Ups, parece que has olvidado subir el archivo de Gle!!');
+        } 
+        
+        
+    }
+
+    public function ingresarGle(): RedirectResponse
+    {
+        $datos = gle::all()->toArray();
+        foreach ($datos as $dato) {
+            Task::create([
+                'Guide'=>$dato['Remittance'],
+                'Conveyor'=>'GLE COLOMBIA',
+                'Client'=>$dato['Customer_Division'],
+                'Elaboration_Date'=>$dato['Date_Desp'],
+                'Origin'=>$dato['Origin'],
+                'Client_Documentation'=>$dato['Doc_Remi'],
+                'Addressee'=>$dato['Addressee'],
+                'Address'=>'0',
+                'Phone'=>'0',
+                'Destination_City'=>$dato['Destination'],
+                'Declared_Value'=>$dato['Vlr_Decl'],
+                'Parts'=>$dato['Quantity'],
+                'Causal_Description'=>$dato['New'],
+                'Causal_Amplification'=>$dato['New'],
+                'Causal_Amplification2'=>$dato['Remarks'],
+                'Weight'=>$dato['Weight'],
+            
+            ]);
+        }
+        return redirect()->route('upload')->with('Cargado', 'Se ha agreagado los datos de Gle con exito');   
         
     }
 
@@ -532,7 +660,6 @@ class UploadController extends Controller
                             'Origin' =>$dato[54],
                             'Destination' =>$dato[55],
 
-
                         ]);
 
                     } 
@@ -548,6 +675,35 @@ class UploadController extends Controller
         {
             return redirect()->route('upload')->with('CargaFallida', '¡Ups, parece que has olvidado subir el archivo de Solistica!!');
         } 
+    }
+
+    public function ingresarSolistica(): RedirectResponse
+    {
+        $datos = solistica::all()->toArray();
+        foreach ($datos as $dato) {
+            Task::create([
+                'Guide'=>$dato['Remittance'],
+                'Conveyor'=>'SOLISTICA',
+                'Client'=>$dato['Customer_Division'],
+                'Elaboration_Date'=>$dato['Exp_Date'],
+                'Origin'=>$dato['Origin'],
+                'Client_Documentation'=>$dato['Purchase_Order'],
+                'Addressee'=>$dato['Addressee'],
+                'Address'=>$dato['Consignee_Address'],
+                'Destination_City'=>$dato['City_Dest(Spa)'],
+                'Declared_Value'=>'-',
+                'Parts'=>$dato['Quantity'],
+                'Shipment_Type'=>$dato['Service_Type'],
+                'Presentation_Date'=>$dato['Delivery_Date'],
+                'Delivery_Appointments'=>'0',
+                'Causal_Description'=>$dato['New'],
+                'Causal_Amplification'=>$dato['New'],
+                'Causal_Amplification2'=>$dato['Remarks'],
+                'Weight'=>$dato['Total_Kilos'],
+            ]);
+        }
+        return redirect()->route('upload')->with('Cargado', 'Se ha agreagado los datos de Solistica con exito');   
+        
     }
 
     public function tcc(Request $request): RedirectResponse
@@ -611,5 +767,32 @@ class UploadController extends Controller
         {
             return redirect()->route('upload')->with('CargaFallida', '¡Ups, parece que has olvidado subir el archivo de Tcc!!');
         } 
+    }
+
+    public function ingresarTcc(): RedirectResponse
+    {
+        $datos = tcc::all()->toArray();
+        foreach ($datos as $dato) {
+            Task::create([
+                'Guide'=>$dato['Remittance'],
+                'Conveyor'=>'TCC',
+                'Client'=>$dato['Client_Division'],
+                'Elaboration_Date'=>$dato['Date_Disp'],
+                'Origin'=>$dato['Origin'],
+                'Client_Documentation'=>$dato['Doc_Remi'],
+                'Addressee'=>$dato['Recipient'],
+                'Address'=>$dato['Addressee_Address'],
+                'Phone'=>$dato['Phone_Telephone_Addressee'],
+                'Destination_City'=>$dato['Destination'],
+                'Declared_Value'=>$dato['Vlr_Decl'],
+                'Parts'=>$dato['Quantity'],
+                'Causal_Description'=>$dato['New3'],
+                'Causal_Amplification'=>$dato['New3'],
+                'Causal_Amplification2'=>$dato['Remarks'],
+                'Weight'=>$dato['Actual_Weight'],            
+            ]);
+        }
+        return redirect()->route('upload')->with('Cargado', 'Se ha agreagado los datos de Tcc con exito');   
+        
     }
 }

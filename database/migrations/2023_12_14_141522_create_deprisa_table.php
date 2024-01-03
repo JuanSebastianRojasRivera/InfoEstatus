@@ -18,15 +18,15 @@ return new class extends Migration
             $table->string('Date_Desp')->nullable();
             $table->string('Place')->nullable();
             $table->string('Customer_Division')->nullable();
-            $table->string('Sender_address')->nullable();
+            $table->string('Sender_Address')->nullable();
             $table->string('Sender_CPC')->nullable();
             $table->string('Origin')->nullable();
             $table->string('Recipient')->nullable();
             $table->string('Consignee_Address')->nullable();
-            $table->string('CP_consignee')->nullable();
+            $table->string('CP_Consignee')->nullable();
             $table->string('Destination')->nullable();
-            $table->string('Date_recorded')->nullable();
-            $table->string('Departure_date')->nullable();
+            $table->string('Date_Recorded')->nullable();
+            $table->string('Departure_Date')->nullable();
             $table->string('Arrival_Date')->nullable();
             $table->string('Delivery_Date')->nullable();
             $table->string('Doc_Remi')->nullable();
@@ -35,7 +35,7 @@ return new class extends Migration
             $table->string('Volume')->nullable();
             $table->string('Incidence')->nullable();
             $table->string('New')->nullable();
-            $table->string('Expansion_incidence')->nullable();
+            $table->string('Expansion_Incidence')->nullable();
             $table->string('Locator')->nullable();
             $table->string('Remarks')->nullable();
             $table->string('Remarks_1')->nullable();

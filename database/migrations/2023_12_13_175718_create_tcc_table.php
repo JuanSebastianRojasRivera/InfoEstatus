@@ -35,12 +35,13 @@ return new class extends Migration
             $table->string('Estimated_Date')->nullable();
             $table->string('Delivery_Days')->nullable();
             $table->string('Delivery_Date')->nullable();
-            $table->string('Novelty')->nullable();
-            $table->text('New_New3')->nullable();
+            $table->string('New')->nullable();
+            $table->text('New3')->nullable();
             $table->text('Remarks')->nullable();
             $table->string('Dane_City_Origin_City')->nullable();
             $table->string('Dane_Destination_City')->nullable();
             $table->string('Transp')->nullable();
+
             $table->timestamps();
         });
     }

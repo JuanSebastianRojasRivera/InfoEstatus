@@ -75,36 +75,36 @@
                     @if(isset($tasks) && $tasks->count() > 0)
                         @foreach($tasks as $task)
                             <tr>
-                                <td class="fw-bold">{{ $task->guide }}</td>
-                                <td>{{ $task->conveyor }}</td>
-                                <td>{{ $task->client }}</td>
-                                <td>{{ $task->elaboration_date }}</td>
-                                <td>{{ $task->origin }}</td>
-                                <td>{{ $task->client_documentation}}</td>
-                                <td>{{ $task->viv }}</td>
-                                <td>{{ $task->addressee }}</td>
-                                <td>{{ $task->address }}</td>
-                                <td>{{ $task->phone }}</td>
-                                <td>{{ $task->destination_city }}</td>
-                                <td>{{ $task->declared_value }}</td>
-                                <td>{{ $task->parts }}</td>
-                                <td>{{ $task->shipment_type }}</td>
-                                <td>{{ $task->type_route}}</td>
-                                <td>{{ $task->delivery_days }}</td>
-                                <td>{{ $task->scheduled_date }}</td>
-                                <td>{{ $task->presentation_date }}</td>
-                                <td>{{ $task->delivery_appointments }}</td>
-                                <td>{{ $task->delivery_status }}</td>
-                                <td>{{ $task->causal_description }}</td>
-                                <td>{{ $task->causal_amplification }}</td>
-                                <td>{{ $task->causal_amplification2 }}</td>
-                                <td>{{ $task->responsible }}</td>
-                                <td>{{ $task->time}}</td>
-                                <td>{{ $task->return_status_fulfilled }}</td>
-                                <td>{{ $task->return_date_fulfilled}}</td>
-                                <td>{{ $task->department_of_origin}}</td>
-                                <td>{{ $task->destination_department}}</td>
-                                <td>{{ $task->weight}}</td>
+                                <td class="fw-bold">{{ $task->Guide }}</td>
+                                <td>{{ $task->Conveyor}}</td>
+                                <td>{{ $task->Client}}</td>
+                                <td>{{ $task->Elaboration_Date }}</td>
+                                <td>{{ $task->Origin}}</td>
+                                <td>{{ $task->Client_Documentation}}</td>
+                                <td>{{ $task->Div}}</td>
+                                <td>{{ $task->Addressee}}</td>
+                                <td>{{ $task->Address}}</td>
+                                <td>{{ $task->Phone}}</td>
+                                <td>{{ $task->Destination_City}}</td>
+                                <td>{{ $task->Declared_Value }}</td>
+                                <td>{{ $task->Parts}}</td>
+                                <td>{{ $task->Shipment_Type }}</td>
+                                <td>{{ $task->Type_Route}}</td>
+                                <td>{{ $task->Delivery_Days }}</td>
+                                <td>{{ $task->Scheduled_Date }}</td>
+                                <td>{{ $task->Presentation_Date }}</td>
+                                <td>{{ $task->Delivery_Appointments }}</td>
+                                <td>{{ $task->Delivery_Status }}</td>
+                                <td>{{ $task->Causal_Description }}</td>
+                                <td>{{ $task->Causal_Amplification }}</td>
+                                <td>{{ $task->Causal_Amplification2 }}</td>
+                                <td>{{ $task->Responsible }}</td>
+                                <td>{{ $task->Time}}</td>
+                                <td>{{ $task->Return_Status_Fulfilled }}</td>
+                                <td>{{ $task->Return_Date_Fulfilled}}</td>
+                                <td>{{ $task->Department_Of_Origin}}</td>
+                                <td>{{ $task->Destination_Department}}</td>
+                                <td>{{ $task->Weight}}</td>
                                 <td class="p-2">
                                     <a href="{{ route('tasks.edit', $task->id) }}" class="btn btn-warning m-2">Editar</a>
                                     <form action="{{ route('tasks.destroy', $task->id) }}" method="post" class="m-2">

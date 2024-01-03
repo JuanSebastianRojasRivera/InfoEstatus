@@ -21,7 +21,7 @@ class solistica extends Model
         'City_Dest(Spa)',
         'Distribution_Zone',
         'Destination_Code',
-        'Nit_or_Cc_Target',
+        'Nit_Or_Cc_Target',
         'Addressee',
         'Consignee_Address',
         'Dry_Load_Cases',
@@ -31,11 +31,12 @@ class solistica extends Model
         'Kilos_Cold_Chain_Kilos',
         'Total_Kilos',
         'Exp_Date',
-        'Time_of_Processing',
+        'Time_Of_Processing',
         'Delivery_Date',
         'Delivery_Time',
         'Time',
-        'New_Cause',
+        'Cause',
+        'New',
         'Cause_Manager_Of_The_Cause',
         'Internal_Cause_Manager_Of_The_Cause',
         'Status',
@@ -57,7 +58,7 @@ class solistica extends Model
         'Digitization',
         'Fulfillment_Indicator',
         'Cause_Queue_No_1',
-        'Queue_of_Appeal_No_2',
+        'Queue_Of_Appeal_No_2',
         'Cause_Queue_No_3',
         'Queue_Of_Appeal_Nr_4',
         'Appointment_Dispatch',
@@ -65,7 +66,7 @@ class solistica extends Model
         'Appointment_Note',
         'Transp',
         'Origin',
-        'Destination'
-
+        'Destination',
+        
     ];
 }

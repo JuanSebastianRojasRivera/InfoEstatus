@@ -35,11 +35,12 @@ class tcc extends Model
         'Estimated_Date',
         'Delivery_Days',
         'Delivery_Date',
-        'Novelty',
-        'New_New3',
+        'New',
+        'New3',
         'Remarks',
         'Dane_City_Origin_City',
         'Dane_Destination_City',
         'Transp',
+
     ];
 }
