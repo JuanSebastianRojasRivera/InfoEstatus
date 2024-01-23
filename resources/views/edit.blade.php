@@ -23,7 +23,7 @@
             @endforeach
         </ul>
     </div>
-@endif
+    @endif
 
 
     <form action="{{route('tasks.update', $task)}}" method="POST">

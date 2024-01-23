@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('typeofservice_changes', function (Blueprint $table) {
+        Schema::create('type_service_changes', function (Blueprint $table) {
+            $table->id();
             $table->string('typeofservice');
             $table->string('servicegle');
-            $table->string('agile');
+            $table->string('agile')->nullable();
+            $table->timestamps();
         });
 
     }

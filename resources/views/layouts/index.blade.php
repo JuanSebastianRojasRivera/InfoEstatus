@@ -107,10 +107,10 @@
                                 <td>{{ $task->Weight}}</td>
                                 <td class="p-2">
                                     <a href="{{ route('tasks.edit', $task->id) }}" class="btn btn-warning m-2">Editar</a>
-                                    <form action="{{ route('tasks.destroy', $task->id) }}" method="post" class="m-2">
+                                    <form action="{{ route('tasks.destroy', $task->id) }}" method="post" class="m-2" id="form_delete">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                                        <button type="button" class="btn btn-danger" onclick="mensajeEliminacion('form_delete')">Eliminar</button>
                                     </form>
                                 </td>
                             </tr>

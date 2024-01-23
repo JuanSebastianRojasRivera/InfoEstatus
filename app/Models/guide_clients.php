@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class task extends Model
+class guide_clients extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['state_guide','state_gle','agile1'];
+    protected $fillable = ['guide1','client1'];
 }

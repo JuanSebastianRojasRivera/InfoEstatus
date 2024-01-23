@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('guide_status', function (Blueprint $table) {
+        Schema::create('guide_statuses', function (Blueprint $table) {
+            $table->id();
             $table->string('state_guide');
             $table->string('state_gle');
             $table->string('agile1');
+            $table->timestamps();
         });
     }
 

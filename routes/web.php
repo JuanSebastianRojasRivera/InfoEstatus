@@ -2,8 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\TaskController;
+use App\http\Controllers\CausalChangesController;
+use App\http\Controllers\ChangesClientsController;
+use App\http\Controllers\GuideClientsController;
+use App\http\Controllers\GuideStatusController;
+use App\http\Controllers\TypeServiceChangesController;
 use App\Http\Controllers\ImportController;
-use App\Http\Controllers\ImportControllerTcc;
 use App\Http\Controllers\UploadController;
 
 
@@ -22,7 +26,7 @@ use App\Http\Controllers\UploadController;
 
 
 
-Route::view('/', 'auth.login');
+Route::view('/', 'auth.login')->name('login');
 
 
 
@@ -33,6 +37,16 @@ Route::middleware(['auth'])->group(function ()
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('/tasks', TaskController::class); 
+    Route::resource('causal-changes', CausalChangesController::class);
+    Route::post('causal-changes/upload', [CausalChangesController::class,'upload']);
+    Route::resource('changes-clients', ChangesClientsController::class); 
+    Route::post('changes-clients/upload', [ChangesClientsController::class,'upload']);
+    Route::resource('guide-clients', GuideClientsController::class); 
+    Route::post('guide-clients/upload', [GuideClientsController::class,'upload']);
+    Route::resource('guide-status', GuideStatusController::class); 
+    Route::post('guide-status/upload', [GuideStatusController::class,'upload']);
+    Route::resource('type-service', TypeServiceChangesController::class); 
+    Route::post('type-service/upload', [TypeServiceChangesController::class,'upload']);
     Route::get('import', [ImportController::class, 'index']);
     Route::get('export/exportar', [ImportController::class, 'exportar']);
     Route::get('upload', [UploadController::class,'index'])->name('upload');

@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class task extends Model
+class changes_clients extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['short_Name','old_name'];
+    protected $fillable = ['short_name','old_name'];
 }

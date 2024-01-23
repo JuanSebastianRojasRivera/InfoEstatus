@@ -12,11 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('causal_changes', function (Blueprint $table) {
+            $table->id();
             $table->string('causal_operators');
             $table->string('causal_status');
-            $table->string('responsible');
+            $table->string('responsible')->nullable();
             $table->string('operator');
-            
+            $table->timestamps();
         });
     }
 
