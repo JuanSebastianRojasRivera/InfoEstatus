@@ -9,7 +9,7 @@ use App\http\Controllers\GuideStatusController;
 use App\http\Controllers\TypeServiceChangesController;
 use App\Http\Controllers\ImportController;
 use App\Http\Controllers\UploadController;
-
+use App\Http\Controllers\HolidayController;
 
 
 
@@ -64,6 +64,7 @@ Route::middleware(['auth'])->group(function ()
     Route::post('upload/ingresar-solistica', [UploadController::class,'ingresarSolistica']);
     Route::post('upload/tcc', [UploadController::class,'tcc']);
     Route::post('upload/ingresar-tcc', [UploadController::class,'ingresarTcc']);
+    Route::resource('holidays',HolidayController::class);
     // Ejemplo de definición de ruta que acepta POST y DELETE en Laravel
     Route::match(['post', 'delete'], 'crosing/actualizarTabla',[ImportController::class, 'actualizarTabla']);
 

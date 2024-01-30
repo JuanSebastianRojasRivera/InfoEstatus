@@ -8,8 +8,8 @@
         <form action="{{route('type-service.update', $type_service)}}" method="POST">
             @csrf
             @method('PUT')
-            <div class="row mb-3 px-2">
-                <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="row mb-3">
+                <div class="col-xs-12 col-sm-12 col-md-12  mt-2">
                     <div class="form-group">
                         <strong>Tipo Servicio:</strong>
                         <input id='typeofservice' type="text" class="form-control" name="typeofservice" value="{{$type_service->typeofservice}}" required>
@@ -28,9 +28,9 @@
                     </div>
                 </div>
             </div>
-            <div class="d-flex ">
-                <a class="btn btn-secondary mx-3" href="{{route('type-service.index')}}">Cancelar</a>
-                <button type="submit" class="btn btn-warning">Editar</button>
+            <div>
+                <a class="btn btn-secondary" href="{{route('type-service.index')}}">Cancelar</a>
+                <button type="submit" class="btn btn-warning mx-2">Guardar</button>
             </div>
         </form>
     </div>

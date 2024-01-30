@@ -15,8 +15,8 @@
                             <button class="btn btn-success" type ="submit">Importar</button>
                         </div>  
                     </form>
-                    <a href="{{ route('changes-clients.create')}}" class="btn btn-primary d-inline">Crear</a>
                 </div>
+                <a href="{{ route('changes-clients.create')}}" class="btn btn-primary">Crear</a>
             </div>
             @if(Session::has('Completado'))
             <div class="col-12 mt-4">

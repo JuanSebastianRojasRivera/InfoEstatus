@@ -5,12 +5,12 @@
         <div class="text-center">
             <h1>Creación de Guia del Cliente</h1>
         </div>
-        <div class="px-2 mx-2">          
+        <div class="row mb-3">          
             <form action="{{route('guide-clients.store')}}" method="POST">
                 @csrf
                 <div class="modal-body">
                     <div class="row mb-3">
-                        <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
                             <div class="form-group">
                                 <strong>Guia:</strong>
                                 <input id='guide1' type="text" class="form-control" name="guide1" required>
@@ -24,8 +24,8 @@
                         </div>
                     </div>
                     <div>
-                        <a class="btn btn-secondary mx-3" href="{{route('guide-clients.index')}}">Cancelar</a>
-                        <button type="submit" class="btn btn-success">Crear</button>
+                        <a class="btn btn-secondary" href="{{route('guide-clients.index')}}">Cancelar</a>
+                        <button type="submit" class="btn btn-success mx-2">Crear</button>
                     </div>
                 </div>
             </form>

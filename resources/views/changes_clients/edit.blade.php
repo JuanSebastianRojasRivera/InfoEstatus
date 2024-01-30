@@ -8,8 +8,8 @@
         <form action="{{route('changes-clients.update', $changes_client)}}" method="POST">
             @csrf
             @method('PUT')
-            <div class="row mb-3 px-2">
-                <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="row mb-3">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
                     <div class="form-group">
                         <strong>Nombre Corto:</strong>
                         <input id='short_name' type="text" class="form-control" name="short_name" value="{{$changes_client->short_name}}" required>
@@ -22,9 +22,9 @@
                     </div>
                 </div>
             </div>
-            <div class="d-flex justify-content-center">
-                <a class="btn btn-secondary mx-3" href="{{route('changes-clients.index')}}">Cancelar</a>
-                <button type="submit" class="btn btn-primary">Guardar</button>
+            <div>
+                <a class="btn btn-secondary" href="{{route('changes-clients.index')}}">Cancelar</a>
+                <button type="submit" class="btn btn-warning mx-2">Guardar</button>
             </div>
         </form>
     </div>

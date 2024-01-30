@@ -9,7 +9,7 @@
             @csrf
             @method('PUT')
             <div class="row mb-3">
-                <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
                     <div class="form-group">
                         <strong>Guia:</strong>
                         <input id='guide1' type="text" class="form-control" name="guide1" value="{{$guide_client->guide1}}" required>
@@ -23,8 +23,8 @@
                 </div>
             </div>
             <div>
-                <a class="btn btn-secondary mx-3" href="{{route('guide-clients.index')}}">Cancelar</a>
-                <button type="submit" class="btn btn-success">Guardar</button>
+                <a class="btn btn-secondary" href="{{route('guide-clients.index')}}">Cancelar</a>
+                <button type="submit" class="btn btn-warning mx-2">Guardar</button>
             </div>
         </form>
     </div>

@@ -16,7 +16,7 @@
                         </div> 
                     </form>
                 </div>
-                <a class="btn btn-info" href="{{route('causal-changes.create')}}">Crear</a>
+                <a class="btn btn-primary" href="{{route('causal-changes.create')}}">Crear</a>
             </div>
             @if(Session::has('Completado'))
             <div class="col-12 mt-4">

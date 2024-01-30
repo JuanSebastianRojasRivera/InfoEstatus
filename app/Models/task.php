@@ -36,7 +36,7 @@ class task extends Model
         'Responsible',
         'Time',
         'Return_Status_Fulfilled',
-        'Return_Date_Fulfilled ',
+        'Return_Date_Fulfilled',
         'Department_Of_Origin',
         'Destination_Department',
         'Weight',

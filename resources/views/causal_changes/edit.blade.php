@@ -2,13 +2,13 @@
 @section('content')
 <div class="container">
     <div class="text-center">
-        <h5 >Edición de Causal de Cambio</h5>
+        <h1>Edición de Causal de Cambio</h1>
     </div>
-    <div class="">          
+    <div class="mx-auto">          
         <form action="{{route('causal-changes.update', $causal_change)}}" method="POST">
             @csrf
             @method('PUT')
-            <class="row">
+            <div class="row mb-3">
                 <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
                     <div class="form-group">
                         <strong>Amplicion Causal:</strong>
@@ -33,10 +33,10 @@
                         <input id='operator' type="text" name="operator" class="form-control" value="{{$causal_change->operator}}" required>
                     </div>
                 </div>
-                <div class="mt-3">
-                    <a type="button" class="btn btn-secondary" href="{{route('causal-changes.index')}}">Cancelar</a>
-                    <button type="submit" class="btn btn-success">Guardar</button>
-                </div>
+            </div>
+            <div>
+                <a type="button" class="btn btn-secondary" href="{{route('causal-changes.index')}}">Cancelar</a>
+                <button type="submit" class="btn btn-warning mx-2">Guardar</button>
             </div>
         </form>
     </div>

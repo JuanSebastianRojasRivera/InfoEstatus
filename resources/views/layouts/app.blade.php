@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -14,7 +14,7 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('assets/estilosApp.css')}}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
+    
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
@@ -23,7 +23,7 @@
         <nav class="navbar navbar-expand-md navbar-light shadow-sm barra ">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/home') }}">
-                    <img src="{{ asset('img/gleBlanco.webp') }}" class="img-fluid rounded-top" alt="logo">
+                    <img src="{{ asset('img/logoBlancoGLE.webp') }}" class="img-fluid rounded-top" alt="logo" style="width: 60%";>
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -41,7 +41,7 @@
                                 <li><a class="dropdown-item" href="{{ route('causal-changes.index')}}">Causales de Cambio</a></li>
                                 <li><a class="dropdown-item" href="{{ route('changes-clients.index')}}">Cambios de Clientes</a></li>
                                 <li><a class="dropdown-item" href="{{ route('guide-clients.index')}}">Guia de Clientes</a></li>
-                                <li><a class="dropdown-item" href="{{ route('guide-status.index')}}">Guia de Estatus</a></li>
+                                <li><a class="dropdown-item" href="{{ route('guide-status.index')}}">Estado de Guia</a></li>
                                 <li><a class="dropdown-item" href="{{ route('type-service.index')}}">Cambios Tipo de Servicio</a></li>
                             </ul>
                         </li>

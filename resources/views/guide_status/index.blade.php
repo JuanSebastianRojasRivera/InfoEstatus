@@ -5,7 +5,7 @@
         <div >
             <div class="">
                 <h1 class="mb-4 text-center">Estado de Guia</h1>
-                <div class="p-3 mb-4  bg-secundary d-inline">
+                <div class="p-2 mb-4  bg-secundary d-inline">
                     <form action="{{url('guide-status/upload')}}" method="post" enctype="multipart/form-data" class="d-inline text-start" id="form-infoestatus">
                         <div class="clo-md-6 br-1 d-inline border border-2 p-3 me-4 ">
                             @csrf
@@ -15,8 +15,8 @@
                             <button class="btn btn-success" type ="submit">Importar</button>
                         </div>  
                     </form>
-                    <a href="{{ route('guide-status.create')}}" class="btn btn-primary d-inline">Crear</a>
                 </div>
+                <a href="{{ route('guide-status.create')}}" class="btn btn-primary">Crear</a>
             </div>
             @if(Session::has('Completado'))
             <div class="col-12 mt-4">

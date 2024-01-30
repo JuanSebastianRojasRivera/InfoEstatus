@@ -38,7 +38,7 @@ class UploadController extends Controller
                         continue;
                     }
 
-                    if (count($dato) >= 30) {
+                    if (count($dato) === 56) {
                         Aldia::create([
                             'Remission' =>$dato[0],
                             'Doc_Remission' =>$dato[1],
@@ -98,7 +98,11 @@ class UploadController extends Controller
                             'Transp' =>$dato[55]
                         ]);
 
-                    } 
+                    }
+                    else
+                    {
+                        return redirect()->route('upload')->with('CargaFallida', '¡Ups, parece que no es de Aldia!!');
+                    }
         
                 }
         
@@ -161,7 +165,7 @@ class UploadController extends Controller
                     if($indice === 0 or empty($dato[0])){
                         continue;
                     }
-                    if (count($dato) >= 30) {
+                    if (count($dato) === 30) {
                         Task::create([
                             'guide' => $dato[0], // Asegúrate de que el índice coincida con la estructura de tus datos
                             'conveyor' => $dato[1],
@@ -196,7 +200,10 @@ class UploadController extends Controller
                         ]);
 
                     } 
-            
+                    else
+                    {
+                        return redirect()->route('upload')->with('CargaFallida', '¡Ups, parece que el archivo no es de Infoestatus!!');
+                    }
                 }
             
             }
@@ -223,7 +230,7 @@ class UploadController extends Controller
                     if($indice === 0){
                         continue;
                     }
-                    if (count($dato) >= 30) {
+                    if (count($dato) === 31) {
                         bluelogistics::create([
                             'Consigment' =>$dato[0],
                             'Recipient' =>$dato[1],
@@ -258,7 +265,10 @@ class UploadController extends Controller
                             'Recipent_Phone' =>$dato[30],
                         ]);
 
-                    } 
+                    }else
+                    {
+                        return redirect()->route('upload')->with('CargaFallida', '¡Ups, parece que el archivo no es de Bluelogistics!!');
+                    }
             
                  }
             
@@ -315,7 +325,7 @@ class UploadController extends Controller
                     if($indice === 0 or empty($dato[1])){
                         continue;
                     }
-                    if (count($dato) >= 36) {
+                    if (count($dato) === 37) {
                         Deprisa::create([
                             'Route' =>$dato[0],
                             'Remittance' =>$dato[1],
@@ -358,6 +368,10 @@ class UploadController extends Controller
                         ]);
 
                     } 
+                    else
+                    {
+                        return redirect()->route('upload')->with('CargaFallida', '¡Ups, parece que el archivo no es de Deprisa!!');
+                    }
             
                  }
             
@@ -417,7 +431,7 @@ class UploadController extends Controller
                     if($indice === 0 or empty($dato[1])){
                         continue;
                     }
-                    if (count($dato) >= 18) {
+                    if (count($dato) === 19) {
                         Gle::create([
                             'Remittance' =>$dato[0],
                             'Transp' =>$dato[1],
@@ -440,7 +454,11 @@ class UploadController extends Controller
                             'Remarks' =>$dato[18],
                         ]);
 
-                    } 
+                    }
+                    else
+                    {
+                        return redirect()->route('upload')->with('CargaFallida', '¡Ups, parece que el archivo no es de Gle!!');
+                    }
             
                  }
             
@@ -498,7 +516,7 @@ class UploadController extends Controller
                     if($indice === 0 or empty($dato[0])){
                         continue;
                     }
-                    if (count($dato) >= 30) {
+                    if (count($dato) === 64) {
                         Servientrega::create([
                             'State' =>$dato[0],
                             'Grounds_for_Mass_Annulment' =>$dato[1],
@@ -569,7 +587,11 @@ class UploadController extends Controller
 
                         ]);
 
-                    } 
+                    }
+                    else
+                    {
+                        return redirect()->route('upload')->with('CargaFallida', '¡Ups, parece que el archivo no es de Servientrega!!');
+                    }
             
                  }
             
@@ -601,7 +623,7 @@ class UploadController extends Controller
                         continue;
                     }
                     
-                    if (count($dato) >= 30) {
+                    if (count($dato) === 56) {
                         Solistica::create([
                             'Remittance' =>$dato[0],
                             'Nit_Rremittant' =>$dato[1],
@@ -662,7 +684,11 @@ class UploadController extends Controller
 
                         ]);
 
-                    } 
+                    }
+                    else
+                    {
+                        return redirect()->route('upload')->with('CargaFallida', '¡Ups, parece que el archivo no es de Solistica!!');
+                    }
             
                  }
             
@@ -720,7 +746,7 @@ class UploadController extends Controller
                     if($indice === 0 or empty($dato[0])){
                         continue;
                     }
-                    if (count($dato) >= 27) {
+                    if (count($dato) === 28) {
                         Tcc::create([
                             'Remittance' =>$dato[0],
                             'Date_Disp' =>$dato[1],
@@ -755,7 +781,10 @@ class UploadController extends Controller
                         ]);
 
                     } 
-            
+                    else
+                    {
+                        return redirect()->route('upload')->with('CargaFallida', '¡Ups, parece que el archivo no es de Tcc!!');
+                    }
                  }
             
             }

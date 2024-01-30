@@ -5,20 +5,10 @@
         <div class="text-center">
             <h1>Creación de Causal de Cambio</h1>
         </div>
-        @if ($errors->any())
-        <div class="alert alert-danger">
-            <strong>Algo Fue mal :/ !</strong> Valida la siguiente informacion:<br><br>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
-        <div class="px-2 mx-2">          
+        <div class="row mb-3">          
             <form action="{{route('causal-changes.store')}}" method="POST">
                 @csrf
-                <div class="row">
+                <div class="row mb-3">
                     <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
                         <div class="form-group">
                             <strong>Amplicion Causal:</strong>
@@ -43,10 +33,10 @@
                             <input id='operator' type="text" name="operator" class="form-control" required>
                         </div>
                     </div>
-                    <div class="mt-3" style="justify-content: center;">
-                        <a type="button" class="btn btn-secondary" href="{{route('causal-changes.index')}}">Cancelar</a>
-                        <button type="submit" class="btn btn-success">Crear</button>
-                    </div>
+                </div>
+                <div>
+                    <a type="button" class="btn btn-secondary" href="{{route('causal-changes.index')}}">Cancelar</a>
+                    <button type="submit" class="btn btn-success mx-2">Crear</button>
                 </div>
             </form>
         </div>

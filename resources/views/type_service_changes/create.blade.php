@@ -5,12 +5,12 @@
         <div class="text-center">
             <h1>Creación de Cambio de tipo de Servicio</h1>
         </div>
-        <div class="px-2 mx-2">          
+        <div class="row mb-3">          
             <form action="{{route('type-service.store')}}" method="POST">
                 @csrf
                 <div>
                     <div class="row mb-3">
-                        <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
                             <div class="form-group">
                                 <strong>Tipo Servicio:</strong>
                                 <input id='typeofservice' type="text" class="form-control" name="typeofservice" required>
@@ -29,9 +29,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="d-flex ">
-                        <a class="btn btn-secondary mx-3" href="{{route('type-service.index')}}">Cancelar</a>
-                        <button type="submit" class="btn btn-success">Crear</button>
+                    <div>
+                        <a class="btn btn-secondary" href="{{route('type-service.index')}}">Cancelar</a>
+                        <button type="submit" class="btn btn-success mx-2">Crear</button>
                     </div>
                 </div>
             </form>

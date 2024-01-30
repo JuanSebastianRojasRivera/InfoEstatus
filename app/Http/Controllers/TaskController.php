@@ -34,8 +34,7 @@ class TaskController extends Controller
 
         $request->validate([
 
-            'title' => 'required',
-            'description' => 'required',
+            'Guide' => 'required',
         ]);
 
         Task::create($request->all());
@@ -64,6 +63,11 @@ class TaskController extends Controller
      */
     public function update(Request $request, task $task): RedirectResponse
     {
+        $request->validate([
+
+            'Guide' => 'required',
+        ]);
+        
         $task->update($request->all());
         return redirect()->route('tasks.index')->with('Completado', 'Guia actualizada exitosamente');
     }

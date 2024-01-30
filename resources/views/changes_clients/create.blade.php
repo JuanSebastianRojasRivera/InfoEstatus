@@ -5,12 +5,12 @@
         <div class="text-center">
             <h1>Creación de Causal de Cambio</h1>
         </div>
-        <div class="px-2 mx-2">          
+        <div class="row mb-3">          
             <form action="{{route('changes-clients.store')}}" method="POST">
                 @csrf
                 <div class="modal-body">
                     <div class="row mb-3">
-                        <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
                             <div class="form-group">
                                 <strong>Nombre Corto:</strong>
                                 <input id='short_name' type="text" class="form-control" name="short_name" required>
@@ -23,9 +23,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="d-flex justify-content-center">
-                        <a class="btn btn-secondary mx-3" href="{{route('changes-clients.index')}}">Cancelar</a>
-                        <button type="submit" class="btn btn-primary">Crear</button>
+                    <div>
+                        <a class="btn btn-secondary" href="{{route('changes-clients.index')}}">Cancelar</a>
+                        <button type="submit" class="btn btn-success mx-3">Crear</button>
                     </div>
                 </div>
             </form>

@@ -4,177 +4,218 @@
 <div class="container">
     <div class="col-12">
         <div>
-            <h2>Editar Guia</h2>
+            <h1>Editar Guia</h1>
         </div>
-        <div>
-            <a href="{{route('tasks.index')}}" class="btn btn-primary">Volver</a>
-        </div>
+        <form action="{{route('tasks.update', $task)}}" method="POST">
+            @csrf
+            @method('PUT')
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col mt-2">
+                        <div class="form-group">
+                            <strong>Guia:</strong>
+                            <input id="Guide" type="text" name="Guide" class="form-control" value="{{ $task->Guide }}" required>
+                        </div>
+                    </div>
+                    <div class="col mt-2">
+                        <div class="form-group">
+                            <strong>Transportadora:</strong>
+                            <input id="Conveyor" type="text" name="Conveyor" class="form-control" value="{{ $task->Conveyor }}">
+                        </div>
+                    </div>
+                    <div class="col mt-2">
+                        <div class="form-group">
+                            <strong>Cliente:</strong>
+                            <input id="Client" type="text" name="Client" class="form-control" value="{{ $task->Client }}">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mt-2">
+                        <div class="form-group">
+                            <strong>Fecha Elaboracion:</strong>
+                            <input id="Elaboration_Date" type="text" name="Elaboration_Date" class="form-control" value="{{ $task->Elaboration_Date }}">
+                        </div>
+                    </div>
+                    <div class="col mt-2">
+                        <div class="form-group">
+                            <strong>Origen:</strong>
+                            <input id="Origin" type="text" name="Origin" class="form-control" value="{{ $task->Origin }}">
+                        </div>
+                    </div>
+                    <div class="col mt-2">
+                        <div class="form-group">
+                            <strong>Doc Client:</strong>
+                            <input id="Client_Documentation" type="Client_Documentation" name="title" class="form-control" value="{{ $task->Client_Documentation }}">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mt-2">
+                        <div class="form-group">
+                            <strong>Div:</strong>
+                            <input id="Div" type="text" name="Div" class="form-control" value="{{ $task->Div }}">
+                        </div>
+                    </div>
+                    <div class="col mt-2">
+                        <div class="form-group">
+                            <strong>Destinatario:</strong>
+                            <input id="Addressee" type="text" name="Addressee" class="form-control" value="{{ $task->Addressee }}">
+                        </div>
+                    </div>
+                    <div class="col mt-2">
+                        <div class="form-group">
+                            <strong>Direccion:</strong>
+                            <input id="Address" type="text" name="Address" class="form-control" value="{{ $task->Address }}">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mt-2">
+                        <div class="form-group">
+                            <strong>Telefono:</strong>
+                            <input id="Phone" type="text" name="Phone" class="form-control" value="{{ $task->Phone }}">
+                        </div>
+                    </div>
+                    <div class="col mt-2">
+                        <div class="form-group">
+                            <strong>Ciudad Destino:</strong>
+                            <input id="Destination_City" type="text" name="Destination_City" class="form-control" value="{{ $task->Destination_City }}">
+                        </div>
+                    </div>
+                    <div class="col mt-2">
+                        <div class="form-group">
+                            <strong>Valor Declarado:</strong>
+                            <input id="Declared_Value" type="text" name="Declared_Value" class="form-control" value="{{ $task->Declared_Value }}">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mt-2">
+                        <div class="form-group">
+                            <strong>Piezas:</strong>
+                            <input id="Parts" type="text" name="Parts" class="form-control" value="{{ $task->Parts }}">
+                        </div>
+                    </div>
+                    <div class="col mt-2">
+                        <div class="form-group">
+                            <strong>Tipo Envio:</strong>
+                            <input id="Shipment_Type" type="text" name="Shipment_Type" class="form-control" value="{{ $task->Shipment_Type }}">
+                        </div>
+                    </div>
+                    <div class="col mt-2">
+                        <div class="form-group">
+                            <strong>Tipo Trayecto:</strong>
+                            <input id="Type_Route" type="text" name="Type_Route" class="form-control" value="{{ $task->Type_Route }}">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mt-2">
+                        <div class="form-group">
+                            <strong>Dias de Entrega:</strong>
+                            <input id="Delivery_Days" type="text" name="Delivery_Days" class="form-control" value="{{ $task->Delivery_Days }}">
+                        </div>
+                    </div>
+                    <div class="col mt-2">
+                        <div class="form-group">
+                            <strong>Fecha Programada:</strong>
+                            <input id="Scheduled_Date" type="text" name="Scheduled_Date" class="form-control" value="{{ $task->Scheduled_Date }}">
+                        </div>
+                    </div>
+                    <div class="col mt-2">
+                        <div class="form-group">
+                            <strong>Fecha de Presentacion:</strong>
+                            <input id="Presentation_Date" type="text" name="Presentation_Date" class="form-control" value="{{ $task->Presentation_Date }}">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mt-2">
+                        <div class="form-group">
+                            <strong>Citas de Entregas:</strong>
+                            <input id="Delivery_Appointments" type="text" name="Delivery_Appointments" class="form-control" value="{{ $task->Delivery_Appointments }}">
+                        </div>
+                    </div>
+                    <div class="col mt-2">
+                        <div class="form-group">
+                            <strong>Estado de Entrega:</strong>
+                            <input id="Delivery_Status" type="text" name="Delivery_Status" class="form-control" value="{{ $task->Delivery_Status }}">
+                        </div>
+                    </div>
+                    <div class="col mt-2">
+                        <div class="form-group">
+                            <strong>Descripcion Causal:</strong>
+                            <input id="Causal_Description" type="text" name="Causal_Description" class="form-control" value="{{ $task->Causal_Description }}">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mt-2">
+                        <div class="form-group">
+                            <strong>Ampliacion Causal:</strong>
+                            <input id="Causal_Amplification" type="text" name="Causal_Amplification" class="form-control" value="{{ $task->Causal_Amplification }}">
+                        </div>
+                    </div>
+                    <div class="col mt-2">
+                        <div class="form-group">
+                            <strong>Ampliacion Causal2:</strong>
+                            <input id="Causal_Amplification2" type="text" name="Causal_Amplification2" class="form-control" value="{{ $task->Causal_Amplification2 }}">
+                        </div>
+                    </div>
+                    <div class="col mt-2">
+                        <div class="form-group">
+                            <strong>Responsable:</strong>
+                            <input id="Responsible" type="text" name="Responsible" class="form-control" value="{{ $task->Responsible }}">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mt-2">
+                        <div class="form-group">
+                            <strong>Tiempo:</strong>
+                            <input id="Time" type="text" name="Time" class="form-control" value="{{ $task->Time }}">
+                        </div>
+                    </div>
+                    <div class="col mt-2">
+                        <div class="form-group">
+                            <strong>Estado de Retorno Cumplido:</strong>
+                            <input id="Return_Status_Fulfilled" type="text" name="Return_Status_Fulfilled" class="form-control" value="{{ $task->Return_Status_Fulfilled }}">
+                        </div>
+                    </div>
+                    <div class="col mt-2">
+                        <div class="form-group">
+                            <strong>Fecha de Retorno Cumplido:</strong>
+                            <input id="Return_Date_Fulfilled" type="text" name="Return_Date_Fulfilled" class="form-control" value="{{ $task->Return_Date_Fulfilled }}">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mt-2">
+                        <div class="form-group">
+                            <strong>Departamento de Origen:</strong>
+                            <input id="Department_Of_Origin" type="text" name="Department_Of_Origin" class="form-control" value="{{ $task->Department_Of_Origin }}">
+                        </div>
+                    </div>
+                    <div class="col mt-2">
+                        <div class="form-group">
+                            <strong>Departamento Destino:</strong>
+                            <input id="Destination_Department" type="text" name="Destination_Department" class="form-control" value="{{ $task->Destination_Department }}">
+                        </div>
+                    </div>
+                    <div class="col mt-2">
+                        <div class="form-group">
+                            <strong>Peso:</strong>
+                            <input id="Weight" type="text" name="Weight" class="form-control" value="{{ $task->Weight }}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a href="{{route('tasks.index')}}" class="btn btn-secondary">Volver</a>
+                <button type="submit" class="btn btn-warning mx-2">Guardar</button>
+            </div>
+        </form>
     </div>
-
-
-
-
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        <strong>Algo Fue mal :/ !</strong> Valida la siguiente informacion:<br><br>
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
-
-
-    <form action="{{route('tasks.update', $task)}}" method="POST">
-        @csrf
-        @method('PUT')
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
-                <div class="form-group">
-                    <strong>Guia:</strong>
-                    <input type="text" name="guide" class="form-control" placeholder="Tarea" value="{{$task->guide}}">
-                </div>
-            </div>
-            <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
-                <div class="form-group">
-                    <strong>Transportadora:</strong>
-                    <input type="text" name="conveyor" class="form-control" placeholder="Tarea" value="{{$task->conveyor}}">
-                </div>
-            </div>
-            <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
-                <div class="form-group">
-                    <strong>Cliente:</strong>
-                    <input type="text" name="client" class="form-control" placeholder="Tarea" value="{{$task->client}}">
-                </div>
-            </div>
-            </div>
-            <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
-                <div class="form-group">
-                    <strong>Fecha de Elaboracion:</strong>
-                    <input type="text" name="elaboration_date" class="form-control" placeholder="Tarea" value="{{$task->elaboration_date}}">
-                </div>
-            </div>
-            </div>
-            <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
-                <div class="form-group">
-                    <strong>Origen:</strong>
-                    <input type="text" name="origin" class="form-control" placeholder="Tarea" value="{{$task->origin}}">
-                </div>
-            </div>
-            <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
-                <div class="form-group">
-                    <strong>Documentacion del cliente: </strong>
-                    <input type="text" name="client_documentation" class="form-control" placeholder="Tarea" value="{{$task->client_documentation}}">
-                </div>
-            </div>
-            <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
-                <div class="form-group">
-                    <strong>Div:</strong>
-                    <input type="text" name="viv" class="form-control" placeholder="Tarea" value="{{$task->viv}}">
-                </div>
-            </div>
-            <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
-                <div class="form-group">
-                    <strong>Destinatario:</strong>
-                    <input type="text" name="addressee" class="form-control" placeholder="Tarea" value="{{$task->addressee}}">
-                </div>
-            </div>
-            <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
-                <div class="form-group">
-                    <strong>Direccion:</strong>
-                    <input type="text" name="address" class="form-control" placeholder="Tarea" value="{{$task->address}}">
-                </div>
-            </div>
-            <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
-                <div class="form-group">
-                    <strong>Telefono:</strong>
-                    <input type="text" name="phone" class="form-control" placeholder="Tarea" value="{{$task->phone}}">
-                </div>
-            </div>
-            <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
-                <div class="form-group">
-                    <strong>Cuidad Destino:</strong>
-                    <input type="text" name="destination_city" class="form-control" placeholder="Tarea" value="{{$task->destination_city}}">
-                </div>
-            </div>
-            <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
-                <div class="form-group">
-                    <strong>Valor declarado:</strong>
-                    <input type="text" name="declared_value" class="form-control" placeholder="Tarea" value="{{$task->declared_value}}">
-                </div>
-            </div>
-            <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
-                <div class="form-group">
-                    <strong>Piezas:</strong>
-                    <input type="text" name="parts" class="form-control" placeholder="Tarea" value="{{$task->parts}}">
-                </div>
-            </div>
-            <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
-                <div class="form-group">
-                    <strong>Tipo de Envio:</strong>
-                    <input type="text" name="shipment_type" class="form-control" placeholder="Tarea" value="{{$task->shipment_type}}">
-                </div>
-            </div>
-            <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
-                <div class="form-group">
-                    <strong>Tipo de Ruta:</strong>
-                    <input type="text" name="type_route" class="form-control" placeholder="Tarea" value="{{$task->type_route}}">
-                </div>
-            </div>
-            <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
-                <div class="form-group">
-                    <strong>Dias de Entrega:</strong>
-                    <input type="text" name="delivery_days" class="form-control" placeholder="Tarea" value="{{$task->delivery_days}}">
-                </div>
-            </div>
-            <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
-                <div class="form-group">
-                    <strong>Fecha Programada:</strong>
-                    <input type="text" name="scheduled_date" class="form-control" placeholder="Tarea" value="{{$task->scheduled_date}}">
-                </div>
-            </div>
-            <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
-                <div class="form-group">
-                    <strong>Fecha de Presentacion:</strong>
-                    <input type="text" name="presentation_date" class="form-control" placeholder="Tarea" value="{{$task->presentation_date}}">
-                </div>
-            </div>
-            <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
-                <div class="form-group">
-                    <strong>Citas de entrega:</strong>
-                    <input type="text" name="delivery_appointments" class="form-control" placeholder="Tarea" value="{{$task->delivery_appointments}}">
-                </div>
-            </div>
-            <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
-                <div class="form-group">
-                    <strong>:</strong>
-                    <input type="text" name="delivery_status" class="form-control" placeholder="Tarea" value="{{$task->delivery_status}}">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center mt-2">
-                <button type="submit" class="btn btn-primary">Crear</button>
-            </div>
-        </div>
-    </form>
 </div>
 @endsection
